@@ -10,7 +10,7 @@
     />
     <title>Document</title>
   </head>
-  <body class="bg-dark" style="width: 100%; margin-top: 2rem">
+  <body style="width: 100%; margin-top: 2rem">
     <div style="--gap: 2.5rem" class="container">
       <h1
         class="letter-spacing-2 fs-500 uppercase ff-sans-cond text-accent"
@@ -166,7 +166,10 @@
         <!-- navigation -->
         <div>
           <nav>
-            <ul class="flex underline-indicators primary-navigation fs-400">
+            <ul
+              style="place-content: center"
+              class="flex underline-indicators primary-navigation fs-400"
+            >
               <li class="active">
                 <a
                   href="#"
@@ -202,7 +205,7 @@
             >
           </div>
 
-          <div style="margin-bottom: 50vh">
+          <div class="flow" style="margin-bottom: 50vh; --flow-space: 4rem">
             <!-- Tabs -->
             <div class="tab-list underline-indicators flex">
               <button
@@ -226,8 +229,30 @@
             </div>
 
             <!-- Dots -->
+            <div>
+              <!-- Tabs -->
+              <div class="dot-indicators">
+                <button aria-selected="true" aria="1">
+                  <span class="sr-only">Slide title</span>
+                </button>
+                <button aria-selected="false">
+                  <span class="sr-only">Slide title</span>
+                </button>
+                <button aria-selected="false">
+                  <span class="sr-only">Slide title</span>
+                </button>
+              </div>
+            </div>
 
             <!-- Numbers -->
+            <div
+              style="margin-bottom: 50vh; --flow-space: 2rem"
+              class="number-button-indicators flow"
+            >
+              <button aria-selected="true">1</button>
+              <button aria-selected="false">2</button>
+              <button aria-selected="false">3</button>
+            </div>
           </div>
         </div>
       </section>

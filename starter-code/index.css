@@ -9,12 +9,12 @@
   --clr-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  --fs-900: clamp(5rem, 11vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -22,6 +22,26 @@
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+}
+
+@media (min-width: 35em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
 }
 
 /* ---------------------- */
@@ -65,10 +85,12 @@ p {
 body {
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
-  background-color: hsl(var(--bg-dark));
+  background-color: hsl(var(--clr-dark) / 1);
   color: hsl(var(--clr-white));
   line-height: 1.5;
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* make images easier to work with */
@@ -112,6 +134,10 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
@@ -120,6 +146,31 @@ select {
   width: 80rem;
   padding-inline: 0 2em;
   margin-inline: auto;
+}
+
+.grid-container {
+  border: 5px solid limegreen;
+  display: grid;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    column-gap: var(--container-gap, 11rem);
+    grid-template-columns: minmax(2em, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        2em,
+        1fr
+      );
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+    border: 2px solid red;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+    border: 2px solid yellow;
+  }
 }
 
 .sr-only {
@@ -249,10 +300,10 @@ select {
 
 .large-button {
   position: relative;
-  display: grid;
+  display: inline-grid;
   text-decoration: none;
   z-index: 1;
-  padding: 0 2em;
+  padding: 0 2.5em;
   aspect-ratio: 1;
   place-items: center;
   border-radius: 50%;
@@ -278,8 +329,7 @@ select {
 
 .primary-navigation {
   --gap: 8rem;
-  --underline-gap: 2rem;
-  place-items: center;
+  --underline-gap: 3rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -320,4 +370,51 @@ select {
 
 .tab-list {
   --gap: 2rem;
+}
+
+.dot-indicators > * {
+  cursor: pointer;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 0.5em;
+  border: 0;
+  background-color: hsl(var(--clr-white) / 0.25);
+}
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
+  background-color: hsl(var(--clr-white) / 0.5);
+}
+
+.dot-indicators > *:active,
+.dot-indicators > [aria-selected="true"] {
+  background-color: hsl(var(--clr-white) / 1);
+}
+
+.number-button-indicators > * {
+  color: hsl(var(--clr-white) / 1);
+  display: flex;
+  cursor: pointer;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  place-items: center;
+  padding: 1em;
+  font-family: serif;
+  font-size: var(--fs-600);
+  border: 0;
+  background-color: hsl(var(--clr-dark) / 0.25);
+  border: 3px solid hsl(var(--clr-white) / 0.25);
+}
+
+.number-button-indicators > *:hover,
+.number-button-indicators > *:focus {
+  border-color: hsl(var(--clr-white) / 0.5);
+}
+
+.number-button-indicators > *:active,
+.number-button-indicators > [aria-selected="true"] {
+  background-color: hsl(var(--clr-white) / 1);
+  color: hsl(var(--clr-dark));
 }
