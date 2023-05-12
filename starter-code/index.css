@@ -12,8 +12,8 @@
   --fs-900: clamp(5rem, 11vw + 1rem, 9.375rem);
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
-  --fs-600: 1rem;
-  --fs-500: 1.75rem;
+  --fs-600: 1.25rem;
+  --fs-500: 1rem;
   --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
@@ -29,7 +29,7 @@
     /* font-sizes */
     --fs-800: 5rem;
     --fs-700: 2.5rem;
-    --fs-600: 1.5rem;
+    --fs-t00: 1.25rem;
     --fs-400: 1rem;
   }
 }
@@ -144,21 +144,21 @@ select {
   margin-top: var(--flow-space, 1rem);
 }
 
-.container {
-  width: 80rem;
-  padding-inline: 0 2em;
-  margin-inline: auto;
-}
-
 .grid-container {
   display: grid;
   place-items: center;
   text-align: center;
-  padding-inline: 1rem;
+  padding-inline: 2rem;
 }
 
 .grid-container * {
   max-width: 50ch;
+}
+
+@media (min-width: 35em), (max-width: 45em) {
+  .grid-container * {
+    max-width: 61ch;
+  }
 }
 
 @media (min-width: 45em) {
@@ -195,6 +195,27 @@ select {
   clip: react(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  text-align: center;
+  margin-inline: auto;
+  width: 15%;
+  left: 0;
+  right: 0;
+  z-index: 3000;
+  right: (100%);
+  background-color: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  text-decoration: none;
+  padding: 0.5em 1m;
+  transform: translateY(-100%);
+  transition: 500ms ease;
+}
+
+.skip-to-content:focus {
+  transform: translateY(100%);
 }
 
 /* ---------- */
@@ -302,7 +323,7 @@ select {
 .numbered-title span {
   color: hsl(var(--clr-white) / 0.25);
   margin-right: 0.5rem;
-  font-size: var(--fs-600);
+  font-size: var(--fs-500);
   font-weight: 700;
 }
 
@@ -405,6 +426,14 @@ select {
     transition: transform 500ms ease;
   }
 
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0);
+  }
+
+  .primary-navigation.underline-indicators > .active {
+    border: 0;
+  }
+
   .mobile-nav-toggle[aria-expanded="true"] {
     background-image: url("./assets/shared/icon-close.svg");
   }
@@ -412,14 +441,6 @@ select {
   .mobile-nav-toggle:focus-visible {
     outline: 5px solid white;
     outline-offset: 5px;
-  }
-
-  .primary-navigation[data-visible="true"] {
-    transform: translateX(0);
-  }
-
-  .primary-navigation.underline-indicators > .active {
-    border: 0;
   }
 
   .mobile-nav-toggle {
@@ -572,5 +593,118 @@ body {
 @media (min-width: 45em) {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg);
+  }
+}
+
+/* ----------------- */
+/*    Destination    */
+/* ----------------- */
+
+.numbered-title--destination {
+  letter-spacing: 2.7px;
+  font-size: var(--fs-500);
+  margin-block: 1.5rem;
+  text-align: center;
+}
+
+.numbered-title--destination span {
+  color: hsl(var(--clr-white) / 0.25);
+  margin-right: 0.5rem;
+  font-size: var(--fs-500);
+  font-weight: 700;
+}
+
+@media (min-width: 35em) {
+  .numbered-title--destination {
+    margin-left: 2rem;
+    text-align: left;
+  }
+}
+
+.grid-container--destination {
+  place-items: center;
+  text-align: center;
+}
+
+.grid--footer {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  padding-bottom: max(3rem, 5vh);
+}
+
+@media (min-width: 35em) {
+  .grid--footer {
+    grid-template-columns: minmax(7em, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        7em,
+        1fr
+      );
+  }
+
+  .grid--footer > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid--footer > *:last-child {
+    grid-column: 3;
+  }
+}
+
+.secondary-navigation {
+  --gap: 2rem;
+  --underline-gap: 0.5rem;
+  list-style: none;
+  place-content: center;
+  margin-block: 1rem;
+}
+
+.secondary-navigation a {
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+@media (min-width: 35em) {
+  .numbered-title--destination {
+    text-align: left;
+    place-items: start;
+    justify-content: start;
+  }
+}
+
+.planet-image {
+  position: relative;
+  display: inline-grid;
+  width: clamp(10.625rem, 50vw, 42.375rem);
+}
+
+.p-destination::after {
+  content: "";
+  display: block;
+  position: relative;
+  height: 2px;
+  margin-inline: auto;
+  width: 90%;
+  background: hsl(var(--clr-white) / 0.1);
+  order: 1;
+  margin-top: 2rem;
+}
+
+.destination {
+  background-image: url(./assets/destination/background-destination-mobile.jpg);
+
+  overflow: auto;
+}
+
+@media (min-width: 35em) {
+  .destination {
+    background-position: center center;
+    background-image: url(./assets/destination/background-destination-tablet.jpg);
+  }
+}
+
+@media (min-width: 45em) {
+  .destination {
+    background-image: url(./assets/destination/background-destination-desktop.jpg);
   }
 }
