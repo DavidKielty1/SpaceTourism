@@ -75,57 +75,68 @@
         </ul>
       </nav>
     </header>
-    <h1
-        class="numbered-title--destination uppercase ff-sans-cond letter-spacing-1"
-      >
-        <span>01</span>Pick your destination
+    <main id="main" class="grid-container grid-container--destination flow">
+      <h1 class="numbered-title uppercase ff-sans-cond letter-spacing-2">
+        <span aria-hidden="true">01</span>Pick your destination
       </h1>
-    <main id="main" class="grid-container grid-container--destination">
-      <div >
-        <img class="planet-image" src="./assets/destination/image-moon.png" />
+      <img
+        class="planet-image"
+        src="./assets/destination/image-moon.png"
+        alt="the moon"
+      />
+      <div class="flex tab-list underline-indicators">
+        <button
+          aria-selected="true"
+          class="text-accent uppercase ff-sans-cond letter-spacing-2"
+        >
+          <a href=""></a>Moon
+        </button>
+        <button
+          aria-selected="false"
+          class="text-accent uppercase ff-sans-cond letter-spacing-2"
+        >
+          <a href=""></a>Mars
+        </button>
+        <button
+          aria-selected="false"
+          class="text-accent uppercase ff-sans-cond letter-spacing-2"
+        >
+          <a href=""></a>Europa
+        </button>
+        <button
+          aria-selected="false"
+          class="text-accent uppercase ff-sans-cond letter-spacing-2"
+        >
+          <a href=""></a>Titan
+        </button>
       </div>
-      <div>
-        <nav class="flex secondary-navigation underline-indicators">
-          <li
-            class="active text-accent uppercase ff-sans-cond letter-spacing-2"
-          >
-            <a href=""></a>Moon
-          </li>
-          <li class="text-accent uppercase ff-sans-cond letter-spacing-2">
-            <a href=""></a>Mars
-          </li>
-          <li class="text-accent uppercase ff-sans-cond letter-spacing-2">
-            <a href=""></a>Europa
-          </li>
-          <li class="text-accent uppercase ff-sans-cond letter-spacing-2">
-            <a href=""></a>Titan
-          </li>
-        </nav>
+      <article class="destination-info">
         <h2 class="fs-800 uppercase ff-serif">Moon</h2>
-        <p class="p-destination text-accent fs-300">
+        <p class="text-accent fs-300">
           See our planet as you’ve never seen it before. A perfect relaxing trip
           away to help regain perspective and come back refreshed. While you’re
           there, take in some history by visiting the Luna 2 and Apollo 11
           landing sites.
         </p>
-       
+        <div class="destination-meta flex">
+          <div>
+            <h3
+              class="fs-200 ff-sans-cond letter-spacing-2 uppercase text-accent"
+            >
+              Avg. distance
+            </h3>
+            <p class="uppercase ff-serif">384,400 km</p>
+          </div>
+          <div>
+            <h3
+              class="fs-200 ff-sans-cond letter-spacing-2 uppercase text-accent"
+            >
+              Est. travel time
+            </h3>
+            <p class="uppercase ff-serif">3 days</p>
+          </div>
         </div>
-      </div>
+      </article>
     </main>
-    <footer class="grid--footer">
-      <div class="grid">
-        <span
-          class="fs-200 ff-sans-cond letter-spacing-2 uppercase text-accent"
-          >Avg. distance</span
-        >
-        <span class="fs-500 uppercase ff-serif">384,400 km</span>
-      </div>
-      <footer class="grid">
-        <span
-          class="fs-200 ff-sans-cond letter-spacing-2 uppercase text-accent"
-          >Est. travel time</span
-        >
-        <span class="fs-500 uppercase ff-serif">3 days</span>
-      </footer>
   </body>
 </html>
